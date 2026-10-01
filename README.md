@@ -17,6 +17,10 @@ Este proyecto es algo más tranquilo, con lo que cada integrante busca ir aprend
 * 💾 Sistema de guardado y carga de partidas.
 * 🖥️ Interfaz desarrollada con JavaFX.
 
+## IMPORTANTE
+
+En este proyecto estaremos usando java 21
+
 ## 📂 Estructura del proyecto
 
 ```text
