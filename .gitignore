@@ -1,0 +1,70 @@
+# ==============================
+# Java / Maven
+# ==============================
+
+# Compilación
+target/
+*.class
+
+# Maven
+!.mvn/wrapper/maven-wrapper.jar
+
+# ==============================
+# IDEs
+# ==============================
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+.nb-gradle/
+
+# ==============================
+# Java
+# ==============================
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# ==============================
+# Sistema operativo
+# ==============================
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# ==============================
+# JavaFX / Aplicación
+# ==============================
+
+# Archivos generados
+out/
+build/
