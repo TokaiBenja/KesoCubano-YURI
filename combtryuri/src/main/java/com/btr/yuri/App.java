@@ -68,9 +68,10 @@ public class App extends Application {
         Media temaprincipal = new Media(rutaAudio);
         tmfondo = new MediaPlayer(temaprincipal);
 
-        String rutaAudio2 = getClass().getResource("/btrtheme.mp3").toExternalForm();
+        String rutaAudio2 = getClass().getResource("/bgmusic.mp3").toExternalForm();
         Media tema2 = new Media(rutaAudio2);
         btfondo = new MediaPlayer(tema2);
+        btfondo.setCycleCount(MediaPlayer.INDEFINITE);
 
         Label version = new Label();
         version.setText("Versión 0.1");
