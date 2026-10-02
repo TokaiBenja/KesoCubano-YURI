@@ -106,11 +106,19 @@ public class App extends Application {
         escenario.show();
     }
 
+
+
     public Scene iniciarJuego() {
         Label texto = new Label("Es el inicio de la aventura...");
+        ImageView fondo1 = new ImageView("/cfbg.jpg");
+        ImageView dgbox = new ImageView("/dialogebox.png");
 
         StackPane juego = new StackPane();
-        juego.getChildren().add(texto);
+        juego.getChildren().addAll(fondo1, dgbox, texto);
+        dgbox.fitWidthProperty().bind(juego.widthProperty());
+        juego.setAlignment(dgbox, Pos.BOTTOM_CENTER);
+        fondo1.fitHeightProperty().bind(juego.heightProperty());
+        fondo1.fitWidthProperty().bind(juego.widthProperty());
 
         Scene escena_juego = new Scene(juego, 800, 600);
 
