@@ -29,8 +29,7 @@ public class App extends Application{
 
         Image icono = new Image(getClass().getResourceAsStream("/icon.png"));
         ImageView pantalla_principal = new ImageView("/maintitle.jpeg");
-        pantalla_principal.setFitWidth(800);
-        pantalla_principal.setFitHeight(600);
+
         Button btnjugar = new Button("JUGAR");
         Label lblmensaje = new Label();
         lblmensaje.setStyle("-fx-font-size: 18px; -fx-text-fill: #462525; -fx-weight: bold;");
@@ -69,6 +68,8 @@ public class App extends Application{
         tmfondo.play();
 
         StackPane root = new StackPane();
+        pantalla_principal.fitWidthProperty().bind(root.widthProperty());
+        pantalla_principal.fitHeightProperty().bind(root.heightProperty());
         root.getChildren().addAll(pantalla_principal, titulo,contenedorBotones, ctexto);
         root.setMargin(contenedorBotones, new Insets(0, 0, 60, 0));
         root.setAlignment(titulo, Pos.TOP_LEFT);
