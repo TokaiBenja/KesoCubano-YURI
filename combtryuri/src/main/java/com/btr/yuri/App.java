@@ -36,18 +36,12 @@ public class App extends Application {
         titulo.setFitWidth(350);
         titulo.setPreserveRatio(true);
 
-        VBox ctexto = new VBox(lblmensaje);
-        ctexto.setMaxWidth(290);
-        ctexto.setMaxHeight(30);
-        ctexto.setVisible(false);
-        ctexto.setStyle("-fx-background-color: #ffffff; -fx-border-color: #9c1880");
 
         btnjugar.setOnAction(e -> {
             escenario.setScene(iniciarJuego());
             tmfondo.stop();
             btfondo.play();
 
-            ctexto.setVisible(true);
         });
 
         btnjugar.setStyle("-fx-background-color: #ffffff; -fx-border-color: #c74bc1");
@@ -89,8 +83,7 @@ public class App extends Application {
             pantalla_principal,
             titulo,
             version,
-            contenedorBotones,
-            ctexto
+            contenedorBotones
         );
 
         root.setMargin(contenedorBotones, new Insets(0, 0, 60, 0));
