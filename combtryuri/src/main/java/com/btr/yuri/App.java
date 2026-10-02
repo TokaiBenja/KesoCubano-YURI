@@ -21,6 +21,7 @@ import javafx.scene.media.MediaPlayer;
 public class App extends Application{
 
     private MediaPlayer tmfondo;
+    private MediaPlayer btfondo;
 
     @Override
     public void start(Stage escenario) throws Exception {
@@ -43,6 +44,9 @@ public class App extends Application{
         ctexto.setStyle("-fx-background-color: #ffffff; -fx-border-color: #9c1880");
         btnjugar.setOnAction(e -> {
             lblmensaje.setText("BIENVENIDO A BOCCHI THE ROCK!");
+            tmfondo.stop();
+            btfondo.play();
+
             ctexto.setVisible(true);
         });
 
@@ -55,6 +59,10 @@ public class App extends Application{
         String rutaAudio = getClass().getResource("/maintheme.mp3").toExternalForm();
         Media temaprincipal = new Media(rutaAudio);
         tmfondo = new MediaPlayer(temaprincipal);
+        String rutaAudio2 = getClass().getResource("/btrtheme.mp3").toExternalForm();
+        Media tema2 = new Media(rutaAudio2);
+        btfondo = new MediaPlayer(tema2);
+
 
         tmfondo.setCycleCount(MediaPlayer.INDEFINITE);
         tmfondo.setVolume(0.5);
