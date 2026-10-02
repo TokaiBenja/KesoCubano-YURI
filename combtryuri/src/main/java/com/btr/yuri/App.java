@@ -41,11 +41,12 @@ public class App extends Application{
 
         Button btnsalir = new Button("SALIR");
         btnsalir.setOnAction(e -> Platform.exit());
-        VBox contenedorBotones = new VBox(15, btnjugar, btnsalir);
-        contenedorBotones.setAlignment(Pos.CENTER);
+        VBox contenedorBotones = new VBox(10, btnjugar, btnsalir);
+        contenedorBotones.setAlignment(Pos.BOTTOM_CENTER);
 
         StackPane root = new StackPane();
         root.getChildren().addAll(pantalla_principal, contenedorBotones, ctexto);
+        root.setMargin(contenedorBotones, new Insets(0, 0, 60, 0));
         
 
         Scene scene = new Scene(root, 800, 600);
