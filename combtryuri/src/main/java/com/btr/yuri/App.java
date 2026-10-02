@@ -109,13 +109,19 @@ public class App extends Application {
 
 
     public Scene iniciarJuego() {
-        Label texto = new Label("Es el inicio de la aventura...");
+        Label texto = new Label("Que pasa peruano!");
+        texto.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 24px");
         ImageView fondo1 = new ImageView("/cfbg.jpg");
         ImageView dgbox = new ImageView("/dialogebox.png");
+        ImageView char1 = new ImageView("/char1v2.png");
 
         StackPane juego = new StackPane();
-        juego.getChildren().addAll(fondo1, dgbox, texto);
+        juego.getChildren().addAll(fondo1, char1, dgbox, texto);
+        juego.setAlignment(texto, Pos.BOTTOM_LEFT);
+        juego.setMargin(texto, new Insets(0, 0, 100, 10));
         dgbox.fitWidthProperty().bind(juego.widthProperty());
+        juego.setAlignment(char1, Pos.BOTTOM_CENTER);
+        juego.setMargin(char1, new Insets(0, 0, -100, 0));
         juego.setAlignment(dgbox, Pos.BOTTOM_CENTER);
         fondo1.fitHeightProperty().bind(juego.heightProperty());
         fondo1.fitWidthProperty().bind(juego.widthProperty());
