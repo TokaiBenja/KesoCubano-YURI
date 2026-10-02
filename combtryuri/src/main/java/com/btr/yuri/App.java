@@ -45,7 +45,7 @@ public class App extends Application{
         contenedorBotones.setAlignment(Pos.CENTER);
 
         StackPane root = new StackPane();
-        root.getChildren().addAll(pantalla_principal ,contenedorBotones, ctexto);
+        root.getChildren().addAll(pantalla_principal, contenedorBotones, ctexto);
         
 
         Scene scene = new Scene(root, 800, 600);
