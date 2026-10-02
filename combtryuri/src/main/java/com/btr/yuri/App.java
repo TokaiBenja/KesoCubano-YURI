@@ -13,9 +13,14 @@ import javafx.stage.Stage;
 import javafx.scene.layout.StackPane;
 import javafx.geometry.Pos;
 import javafx.application.Platform;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 
 
 public class App extends Application{
+
+    private MediaPlayer tmfondo;
 
     @Override
     public void start(Stage escenario) throws Exception {
@@ -28,6 +33,9 @@ public class App extends Application{
         Button btnjugar = new Button("JUGAR");
         Label lblmensaje = new Label();
         lblmensaje.setStyle("-fx-font-size: 18px; -fx-text-fill: #462525; -fx-weight: bold;");
+        ImageView titulo = new ImageView("/title.png");
+        titulo.setFitWidth(350);
+        titulo.setPreserveRatio(true);
         VBox ctexto = new VBox(lblmensaje);
         ctexto.setMaxWidth(290);
         ctexto.setMaxHeight(30);
@@ -44,9 +52,19 @@ public class App extends Application{
         VBox contenedorBotones = new VBox(10, btnjugar, btnsalir);
         contenedorBotones.setAlignment(Pos.BOTTOM_CENTER);
 
+        String rutaAudio = getClass().getResource("/maintheme.mp3").toExternalForm();
+        Media temaprincipal = new Media(rutaAudio);
+        tmfondo = new MediaPlayer(temaprincipal);
+
+        tmfondo.setCycleCount(MediaPlayer.INDEFINITE);
+        tmfondo.setVolume(0.5);
+        tmfondo.play();
+
         StackPane root = new StackPane();
-        root.getChildren().addAll(pantalla_principal, contenedorBotones, ctexto);
+        root.getChildren().addAll(pantalla_principal, titulo,contenedorBotones, ctexto);
         root.setMargin(contenedorBotones, new Insets(0, 0, 60, 0));
+        root.setAlignment(titulo, Pos.TOP_LEFT);
+        root.setMargin(titulo, new Insets(-105, 0, 0, -30));
         
 
         Scene scene = new Scene(root, 800, 600);
