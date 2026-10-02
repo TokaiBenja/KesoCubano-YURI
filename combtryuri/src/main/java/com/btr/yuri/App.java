@@ -10,7 +10,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.*;
 import javafx.stage.Stage;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+import javafx.geometry.Pos;
+import javafx.application.Platform;
 
 
 public class App extends Application{
@@ -21,11 +23,31 @@ public class App extends Application{
 
         Image icono = new Image(getClass().getResourceAsStream("/icon.png"));
         ImageView pantalla_principal = new ImageView("/maintitle.jpeg");
-        pantalla_principal.setFitHeight(570);
         pantalla_principal.setFitWidth(800);
+        pantalla_principal.setFitHeight(600);
+        Button btnjugar = new Button("JUGAR");
+        Label lblmensaje = new Label();
+        lblmensaje.setStyle("-fx-font-size: 18px; -fx-text-fill: #462525; -fx-weight: bold;");
+        VBox ctexto = new VBox(lblmensaje);
+        ctexto.setMaxWidth(290);
+        ctexto.setMaxHeight(30);
+        ctexto.setVisible(false);
+        ctexto.setStyle("-fx-background-color: #ffffff; -fx-border-color: #9c1880");
+        btnjugar.setOnAction(e -> {
+            lblmensaje.setText("BIENVENIDO A BOCCHI THE ROCK!");
+            ctexto.setVisible(true);
+        });
+
+
+        Button btnsalir = new Button("SALIR");
+        btnsalir.setOnAction(e -> Platform.exit());
+        VBox contenedorBotones = new VBox(15, btnjugar, btnsalir);
+        contenedorBotones.setAlignment(Pos.CENTER);
+
+        StackPane root = new StackPane();
+        root.getChildren().addAll(pantalla_principal ,contenedorBotones, ctexto);
         
-        Label lblNombreApp = new Label("LOREM IPSUM DOLOR");
-        VBox root = new VBox(15, lblNombreApp, pantalla_principal);
+
         Scene scene = new Scene(root, 800, 600);
         escenario.getIcons().add(icono);
         escenario.setTitle("Bocchi The Rock: Snapshot 0.1");
