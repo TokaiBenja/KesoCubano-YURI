@@ -20,6 +20,9 @@ Este proyecto es algo más tranquilo, con lo que cada integrante busca ir aprend
 ## IMPORTANTE
 
 En este proyecto estaremos usando java 21
+REVISAR DENTRO DE LA CARPETA COMBYURI EL ARCHIVO EXPLICACIONES.JAVA:
+Cuenta con una explicación para cada importación, componente visual y elemento de la interfaz.
+Se irá actualizando a medida de que se añadan nuevas funciones.
 
 ## 📂 Estructura del proyecto
 
