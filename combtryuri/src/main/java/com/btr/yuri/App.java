@@ -110,7 +110,7 @@ public class App extends Application {
 
 
     public Scene iniciarJuego() {
-        Label texto = new Label("Que pasa peruano!");
+        Label texto = new Label("Maaaatiiiii~ ♪♪♪");
         texto.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 24px");
         ImageView fondo1 = new ImageView("/cfbg.jpg");
         ImageView dgbox = new ImageView("/dialogebox.png");
