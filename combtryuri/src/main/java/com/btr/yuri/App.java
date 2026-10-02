@@ -43,7 +43,6 @@ public class App extends Application {
         ctexto.setStyle("-fx-background-color: #ffffff; -fx-border-color: #9c1880");
 
         btnjugar.setOnAction(e -> {
-            lblmensaje.setText("BIENVENIDO A BOCCHI THE ROCK!");
             escenario.setScene(iniciarJuego());
             tmfondo.stop();
             btfondo.play();
