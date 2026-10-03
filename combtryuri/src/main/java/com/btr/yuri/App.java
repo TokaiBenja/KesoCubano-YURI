@@ -106,6 +106,7 @@ public class App extends Application {
         Personaje chark = new Personaje("Kitasan", "/char1v2.png", -100);
         Personaje charb = new Personaje("Bocchi", "/char2.png", -350);
         Personaje charr = new Personaje("Ryo", "/char3v2.png", -100);
+        Personaje charcr7 = new Personaje("Cristiano Ronaldo", "/charcr7.png", -30);
         Label nombrec1 = new Label(chark.getNombre());
         nombrec1.setStyle("-fx-text-fill: #fffdfd; -fx-font-size: 22px");
         Dialogo dialogok1 = new Dialogo(chark, "Maaaatiiiii~ ♪♪♪");
@@ -116,6 +117,10 @@ public class App extends Application {
         Dialogo dialogok5 = new Dialogo(chark, "Pero eres una mujer");
         Dialogo dialogob2 = new Dialogo(charb, "Y-Y e-eso que tiene que ver");
         Dialogo dialogor1 = new Dialogo(charr, "Hola");
+        Dialogo dialogocr1 = new Dialogo(charcr7, "Hola chicas como están!");
+        Dialogo dialogocr2 = new Dialogo(charcr7, "Espero que muy bien!");
+        Dialogo dialogok6 = new Dialogo(chark, "Hola bichoooo, yo estoy geniaaaal!");
+        Dialogo dialogob3 = new Dialogo(charb, "H-hola cristiano, yo igual estoy b-bien");
         dialogos.add(dialogok1);
         dialogos.add(dialogok2);
         dialogos.add(dialogok3);
@@ -124,6 +129,10 @@ public class App extends Application {
         dialogos.add(dialogok5);
         dialogos.add(dialogob2);
         dialogos.add(dialogor1);
+        dialogos.add(dialogocr1);
+        dialogos.add(dialogocr2);
+        dialogos.add(dialogok6);
+        dialogos.add(dialogob3);
 
         int[] dialogoactual = {0};
 
