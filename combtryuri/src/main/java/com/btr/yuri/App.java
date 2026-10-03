@@ -105,6 +105,7 @@ public class App extends Application {
         ArrayList<Dialogo> dialogos = new ArrayList<>();
         Personaje chark = new Personaje("Kitasan", "/char1v2.png", -100);
         Personaje charb = new Personaje("Bocchi", "/char2.png", -350);
+        Personaje charr = new Personaje("Ryo", "/char3v2.png", -100);
         Label nombrec1 = new Label(chark.getNombre());
         nombrec1.setStyle("-fx-text-fill: #fffdfd; -fx-font-size: 22px");
         Dialogo dialogok1 = new Dialogo(chark, "Maaaatiiiii~ ♪♪♪");
@@ -114,6 +115,7 @@ public class App extends Application {
         Dialogo dialogob1 = new Dialogo(charb, "Le tengo miedo a las mujeres");
         Dialogo dialogok5 = new Dialogo(chark, "Pero eres una mujer");
         Dialogo dialogob2 = new Dialogo(charb, "Y-Y e-eso que tiene que ver");
+        Dialogo dialogor1 = new Dialogo(charr, "Hola");
         dialogos.add(dialogok1);
         dialogos.add(dialogok2);
         dialogos.add(dialogok3);
@@ -121,6 +123,7 @@ public class App extends Application {
         dialogos.add(dialogob1);
         dialogos.add(dialogok5);
         dialogos.add(dialogob2);
+        dialogos.add(dialogor1);
 
         int[] dialogoactual = {0};
 
