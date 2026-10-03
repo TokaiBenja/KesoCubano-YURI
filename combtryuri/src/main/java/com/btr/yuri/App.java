@@ -102,16 +102,21 @@ public class App extends Application {
 
 
     public Scene iniciarJuego() {
+        Personaje chark = new Personaje("Kitasan", "/char1v2.png");
+        Label nombrec1 = new Label(chark.getNombre());
+        nombrec1.setStyle("-fx-text-fill: #fffdfd; -fx-font-size: 22px");
         Label texto = new Label("Maaaatiiiii~ ♪♪♪");
-        texto.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 24px");
+        texto.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 20px");
         ImageView fondo1 = new ImageView("/cfbg.jpg");
         ImageView dgbox = new ImageView("/dialogebox.png");
-        ImageView char1 = new ImageView("/char1v2.png");
+        ImageView char1 = new ImageView(chark.getImagen());
 
         StackPane juego = new StackPane();
-        juego.getChildren().addAll(fondo1, char1, dgbox, texto);
+        juego.getChildren().addAll(fondo1, char1, dgbox, texto, nombrec1);
+        juego.setAlignment(nombrec1, Pos.BOTTOM_LEFT);
+        juego.setMargin(nombrec1, new Insets(0, 0, 109, 10));
         juego.setAlignment(texto, Pos.BOTTOM_LEFT);
-        juego.setMargin(texto, new Insets(0, 0, 100, 10));
+        juego.setMargin(texto, new Insets(0, 0, 80, 10));
         dgbox.fitWidthProperty().bind(juego.widthProperty());
         juego.setAlignment(char1, Pos.BOTTOM_CENTER);
         juego.setMargin(char1, new Insets(0, 0, -100, 0));
