@@ -102,18 +102,25 @@ public class App extends Application {
 
 
     public Scene iniciarJuego() {
-        ArrayList<Dialogo> dialogoskita = new ArrayList<>();
-        Personaje chark = new Personaje("Kitasan", "/char1v2.png");
+        ArrayList<Dialogo> dialogos = new ArrayList<>();
+        Personaje chark = new Personaje("Kitasan", "/char1v2.png", -100);
+        Personaje charb = new Personaje("Bocchi", "/char2.png", -350);
         Label nombrec1 = new Label(chark.getNombre());
         nombrec1.setStyle("-fx-text-fill: #fffdfd; -fx-font-size: 22px");
         Dialogo dialogok1 = new Dialogo(chark, "Maaaatiiiii~ ♪♪♪");
-        Dialogo dialogok2 = new Dialogo(chark, "Como estás <3");
         Dialogo dialogok3 = new Dialogo(chark, "Espero que muy bien!" );
+        Dialogo dialogok2 = new Dialogo(chark, "Como estás <3");
         Dialogo dialogok4 = new Dialogo(chark, "Se que te gustan los hombres pero espero podamos llevarnos bien igualmente");
-        dialogoskita.add(dialogok1);
-        dialogoskita.add(dialogok2);
-        dialogoskita.add(dialogok3);
-        dialogoskita.add(dialogok4);
+        Dialogo dialogob1 = new Dialogo(charb, "Le tengo miedo a las mujeres");
+        Dialogo dialogok5 = new Dialogo(chark, "Pero eres una mujer");
+        Dialogo dialogob2 = new Dialogo(charb, "Y-Y e-eso que tiene que ver");
+        dialogos.add(dialogok1);
+        dialogos.add(dialogok2);
+        dialogos.add(dialogok3);
+        dialogos.add(dialogok4);
+        dialogos.add(dialogob1);
+        dialogos.add(dialogok5);
+        dialogos.add(dialogob2);
 
         int[] dialogoactual = {0};
 
@@ -143,12 +150,15 @@ public class App extends Application {
                 case SPACE:
                 case ENTER:
 
-                    if (dialogoactual[0] < dialogoskita.size() - 1){
+                    if (dialogoactual[0] < dialogos.size() - 1){
                         dialogoactual[0]++;
-                        Dialogo siguiente = dialogoskita.get(dialogoactual[0]);
+                        Dialogo siguiente = dialogos.get(dialogoactual[0]);
 
                         texto.setText(siguiente.getTexto());
                         nombrec1.setText(siguiente.getPersonaje().getNombre());
+                        char1.setImage(new Image(siguiente.getPersonaje().getImagen()));
+
+                        juego.setMargin(char1, new Insets(0, 0, siguiente.getPersonaje().getPosicionY(), 0));
 
                     }
 
