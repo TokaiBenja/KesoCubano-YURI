@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
+import java.util.ArrayList;
 //Si es el profesor y esta viendo esto, use IA para únicamente ordenar el código, puede ver en anteriores commits que está todo a mano, y en este commit se hizo uso de la IA para ordenar la estructura del código sin cambiar nada más.
 
 public class App extends Application {
@@ -102,10 +102,23 @@ public class App extends Application {
 
 
     public Scene iniciarJuego() {
+        ArrayList<Dialogo> dialogoskita = new ArrayList<>();
         Personaje chark = new Personaje("Kitasan", "/char1v2.png");
         Label nombrec1 = new Label(chark.getNombre());
         nombrec1.setStyle("-fx-text-fill: #fffdfd; -fx-font-size: 22px");
-        Label texto = new Label("Maaaatiiiii~ ♪♪♪");
+        Dialogo dialogok1 = new Dialogo(chark, "Maaaatiiiii~ ♪♪♪");
+        Dialogo dialogok2 = new Dialogo(chark, "Como estás <3");
+        Dialogo dialogok3 = new Dialogo(chark, "Espero que muy bien!" );
+        Dialogo dialogok4 = new Dialogo(chark, "Se que te gustan los hombres pero espero podamos llevarnos bien igualmente");
+        dialogoskita.add(dialogok1);
+        dialogoskita.add(dialogok2);
+        dialogoskita.add(dialogok3);
+        dialogoskita.add(dialogok4);
+
+        int[] dialogoactual = {0};
+
+        
+        Label texto = new Label(dialogok1.getTexto());
         texto.setStyle("-fx-text-fill: #ffffff; -fx-font-size: 20px");
         ImageView fondo1 = new ImageView("/cfbg.jpg");
         ImageView dgbox = new ImageView("/dialogebox.png");
@@ -125,6 +138,28 @@ public class App extends Application {
         fondo1.fitWidthProperty().bind(juego.widthProperty());
 
         Scene escena_juego = new Scene(juego, 800, 600);
+        escena_juego.setOnKeyPressed(e -> {
+            switch (e.getCode()) {
+                case SPACE:
+                case ENTER:
+
+                    if (dialogoactual[0] < dialogoskita.size() - 1){
+                        dialogoactual[0]++;
+                        Dialogo siguiente = dialogoskita.get(dialogoactual[0]);
+
+                        texto.setText(siguiente.getTexto());
+                        nombrec1.setText(siguiente.getPersonaje().getNombre());
+
+                    }
+
+                    
+                    break;
+            
+                default:
+                    break;
+            }
+
+        });
 
         return escena_juego;
     }
