@@ -20,6 +20,8 @@ public class App extends Application {
 
     private MediaPlayer tmfondo;
     private MediaPlayer btfondo;
+    private MediaPlayer mtfondo;
+    private MediaPlayer moffondo;
 
     @Override
     public void start(Stage escenario) throws Exception {
@@ -74,6 +76,14 @@ public class App extends Application {
         tmfondo.setVolume(0.5);
         tmfondo.play();
 
+        String rutaAudio3 = getClass().getResource("/p1eltiburon.mp3").toExternalForm();
+        Media tema3 = new Media(rutaAudio3);
+        mtfondo = new MediaPlayer(tema3);
+
+        String rutaAudio4 = getClass().getResource("/ohf.mp3").toExternalForm();
+        Media tema4 = new Media(rutaAudio4);
+        moffondo = new MediaPlayer(tema4);
+
         StackPane root = new StackPane();
 
         pantalla_principal.fitWidthProperty().bind(root.widthProperty());
@@ -107,6 +117,7 @@ public class App extends Application {
         Personaje charb = new Personaje("Bocchi", "/char2.png", -350);
         Personaje charr = new Personaje("Ryo", "/char3v2.png", -100);
         Personaje charcr7 = new Personaje("Cristiano Ronaldo", "/charcr7.png", -30);
+        Personaje charf = new Personaje("Ferran torres", "/ferrantorres.png", 0);
         Label nombrec1 = new Label(chark.getNombre());
         nombrec1.setStyle("-fx-text-fill: #fffdfd; -fx-font-size: 22px");
         Dialogo dialogok1 = new Dialogo(chark, "Maaaatiiiii~ ♪♪♪");
@@ -121,6 +132,10 @@ public class App extends Application {
         Dialogo dialogocr2 = new Dialogo(charcr7, "Espero que muy bien!");
         Dialogo dialogok6 = new Dialogo(chark, "Hola bichoooo, yo estoy geniaaaal!");
         Dialogo dialogob3 = new Dialogo(charb, "H-hola cristiano, yo igual estoy b-bien");
+        Dialogo dialogof1 = new Dialogo(charf, "Buenas tardes");
+        Dialogo dialogok7 = new Dialogo(chark, "OH FERRAAAAAAAAAAAN");
+        Dialogo dialogocr3 = new Dialogo(charcr7, "Pero si es mi padre, el salvador del futbol!"); 
+        Dialogo dialogof2 = new Dialogo(charf, "No te preocupes cris, ya te enseñare a jugar otro día.");
         dialogos.add(dialogok1);
         dialogos.add(dialogok2);
         dialogos.add(dialogok3);
@@ -133,6 +148,10 @@ public class App extends Application {
         dialogos.add(dialogocr2);
         dialogos.add(dialogok6);
         dialogos.add(dialogob3);
+        dialogos.add(dialogof1);
+        dialogos.add(dialogok7);
+        dialogos.add(dialogocr3);
+        dialogos.add(dialogof2);
 
         int[] dialogoactual = {0};
 
@@ -171,6 +190,26 @@ public class App extends Application {
                         char1.setImage(new Image(siguiente.getPersonaje().getImagen()));
 
                         juego.setMargin(char1, new Insets(0, 0, siguiente.getPersonaje().getPosicionY(), 0));
+
+                        if (siguiente.getPersonaje() == charf){
+                            moffondo.stop();
+                            btfondo.pause();
+                            mtfondo.play();
+                        }
+
+                        else if(siguiente == dialogok7){
+                            btfondo.pause();
+                            mtfondo.pause();
+                            moffondo.play();
+
+                        }
+                            
+                        
+                        else{
+                            moffondo.stop();
+                            mtfondo.pause();
+                            btfondo.play();
+                        }
 
                     }
 
